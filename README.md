@@ -21,11 +21,16 @@ against each question, by keywords (BM25) and optionally by meaning
 
 ## Install
 
+Not on PyPI yet. Install from GitHub:
+
 ```bash
-pip install mcp-tool-router              # ToolRouter + eval, no dependencies
-pip install "mcp-tool-router[semantic]"  # + a local embedding model (fastembed, CPU, no API key)
-pip install "mcp-tool-router[fastmcp]"   # + RouterSearchTransform, serve, eval --config
+uv add "mcp-tool-router @ git+https://github.com/dhruv1n30/mcp-tool-router"            # ToolRouter + eval, no dependencies
+uv add "mcp-tool-router[semantic] @ git+https://github.com/dhruv1n30/mcp-tool-router"  # + a local embedding model (fastembed, CPU, no API key)
+uv add "mcp-tool-router[fastmcp] @ git+https://github.com/dhruv1n30/mcp-tool-router"   # + RouterSearchTransform, serve, eval --config
 ```
+
+With pip, use `pip install "mcp-tool-router[fastmcp] @ git+https://github.com/dhruv1n30/mcp-tool-router"`.
+From a local checkout, use `uv add --editable "path/to/mcp-tool-router[fastmcp]"`.
 
 ## Route tools in your own agent loop
 
