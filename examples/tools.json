@@ -1,0 +1,110 @@
+[
+  {
+    "name": "get_sales_by_category",
+    "description": "Net sales grouped by product category for a date range.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "description": "First day, YYYY-MM-DD"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "Last day, YYYY-MM-DD"
+        }
+      }
+    }
+  },
+  {
+    "name": "get_inventory_value",
+    "description": "Total value of stock on hand.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "warehouse": {
+          "type": "string",
+          "description": "Warehouse code"
+        }
+      }
+    }
+  },
+  {
+    "name": "get_employee_hours",
+    "description": "Hours worked per employee, from the timesheet.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_metric",
+    "description": "One headline number for a period.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "metric": {
+          "type": "string",
+          "description": "Which number",
+          "enum": [
+            "revenue",
+            "refunds",
+            "tax"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "send_email",
+    "description": "Send an email message to a recipient.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "Recipient address"
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "get_weather_forecast",
+    "description": "Weather forecast for a city.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "City name"
+        }
+      }
+    }
+  },
+  {
+    "name": "create_calendar_event",
+    "description": "Create an event on the calendar.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "get_user_profile",
+    "description": "The signed-in user's name and email.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]

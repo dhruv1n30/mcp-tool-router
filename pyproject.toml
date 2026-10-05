@@ -1,0 +1,78 @@
+[project]
+name = "mcp-tool-router"
+version = "0.1.0"
+description = "Send an LLM only the MCP tools that matter: BM25 tool routing for agents, a FastMCP search transform, and an eval CLI."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Dhruvin Vachhani", email = "dhruvinvachhani25@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["mcp", "model-context-protocol", "llm", "agents", "tool-calling", "bm25", "fastmcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+
+[project.optional-dependencies]
+fastmcp = [
+    # Subclasses FastMCP's search-transform hooks, which may change in a major release.
+    "fastmcp>=4.0,<5",
+]
+semantic = [
+    "fastembed>=0.5",
+]
+
+[project.scripts]
+mcp-tool-router = "mcp_tool_router.cli:main"
+
+[project.urls]
+Repository = "https://github.com/dhruv1n30/mcp-tool-router"
+Issues = "https://github.com/dhruv1n30/mcp-tool-router/issues"
+
+[build-system]
+requires = ["uv_build>=0.9.12,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.168.4",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--strict-markers -m 'not model'"
+markers = [
+    "e2e: spawns a real MCP server subprocess",
+    "model: downloads and runs a real embedding model (run with -m model)",
+]
+
+[tool.coverage.run]
+source = ["mcp_tool_router"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["pragma: no cover", "if __name__ == .__main__.:", 'class .*\bProtocol\):']
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]

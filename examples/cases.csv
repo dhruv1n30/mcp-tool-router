@@ -1,0 +1,18 @@
+question,expected
+what's the weather in Pune tomorrow,get_weather_forecast
+wether forcast for mumbai,get_weather_forecast
+how much stock do we have in warehouse B,get_inventory_value
+total inventroy value,get_inventory_value
+sales by category for last week,get_sales_by_category
+how many hours did each employee work,get_employee_hours
+how much tax did we collect,get_metric
+refunds this month,get_metric
+email the report to the accountant,send_email
+put a meeting on my calendar for friday,create_calendar_event
+what is my email address,get_user_profile
+compare stock value and sales by category,get_inventory_value|get_sales_by_category
+what is our merchandise worth,get_inventory_value
+will it rain in Pune,get_weather_forecast
+who did overtime last week,get_employee_hours
+ping the accountant by mail,send_email
+book a meeting with the supplier,create_calendar_event
